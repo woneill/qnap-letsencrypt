@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -o errexit
 
-LEGO_CERT_PEM_PATH=$(dirname "$LEGO_CERT_KEY_PATH")/${LEGO_CERT_DOMAIN}.pem
+# shellcheck disable=SC2153
+LEGO_CERT_PEM_PATH=$(dirname "${LEGO_CERT_KEY_PATH}")/${LEGO_CERT_DOMAIN}.pem
 
 trap error_cleanup ERR
 

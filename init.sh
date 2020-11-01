@@ -66,10 +66,10 @@ fi
 
 GANDIV5_API_KEY_FILE="${FLAGS_GANDIV5_API_KEY_FILE}" ${LEGO_BIN} ${SERVER_FLAGS} --email="${FLAGS_EMAIL}" --domains="${FLAGS_DOMAIN}" --dns="gandiv5" --dns.resolvers="8.8.8.8" --pem run --run-hook="${SCRIPT_DIR}/deploy_hook.sh"
 
-cat <<EOF > ${SCRIPT_DIR}/renew_certificate.sh
+cat <<EOF > "${SCRIPT_DIR}"/renew_certificate.sh
 GANDIV5_API_KEY_FILE="${FLAGS_GANDIV5_API_KEY_FILE}" ${LEGO_BIN} ${SERVER_FLAGS} --email="${FLAGS_EMAIL}" --domains="${FLAGS_DOMAIN}" --dns="gandiv5" --dns.resolvers="8.8.8.8" --pem renew --days 45 --renew-hook="${SCRIPT_DIR}/deploy_hook.sh"
 EOF
-chmod a+x ${SCRIPT_DIR}/renew_certificate.sh
+chmod a+x "${SCRIPT_DIR}"/renew_certificate.sh
 
 cat <<EOF >> /etc/config/crontab
 30 3 * * * ${SCRIPT_DIR}/renew_certificate.sh >> ${SCRIPT_DIR}/renew_certificate.log 2>&1
