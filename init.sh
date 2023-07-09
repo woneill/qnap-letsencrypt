@@ -84,7 +84,7 @@ if [ "${FLAGS_testing}" -eq ${FLAGS_TRUE} ]; then
     SERVER_FLAGS='--server=https://acme-staging-v02.api.letsencrypt.org/directory'
 fi
 
-LEGO_BASE_CMD="DO_AUTH_TOKEN_FILE=${FLAGS_AUTH_TOKEN_FILE} ${LEGO_BIN} ${SERVER_FLAGS} --email=${FLAGS_EMAIL} --domains=${FLAGS_DOMAIN} --dns=${FLAGS_PROVIDER} --dns.resolvers=8.8.8.8"
+LEGO_BASE_CMD="DO_AUTH_TOKEN_FILE=${FLAGS_AUTH_TOKEN_FILE} ${LEGO_BIN} --path ${LEGO_DIR} ${SERVER_FLAGS} --email=${FLAGS_EMAIL} --domains=${FLAGS_DOMAIN} --dns=${FLAGS_PROVIDER} --dns.resolvers=8.8.8.8"
 
 if [ ! -d "${LEGO_DIR}/certificates" ]; then
     echo "No existing certificate found- creating one"
