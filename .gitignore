@@ -1,4 +1,5 @@
 .auth_token
+.env
 .lego
 lego
 renew_certificate.log
