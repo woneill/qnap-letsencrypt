@@ -1,5 +1,6 @@
-.gandiv5_api_key
+.auth_token
 .lego
 lego
 renew_certificate.log
 renew_certificate.sh
+generate_certificate.sh
