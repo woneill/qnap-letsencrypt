@@ -107,6 +107,5 @@ if cmp -s "$tmp" /etc/config/crontab; then
     echo "No changes needed to crontab"
 else
     mv "$tmp" /etc/config/crontab
-    crontab /etc/config/crontab
     /etc/init.d/crond.sh restart
 fi
